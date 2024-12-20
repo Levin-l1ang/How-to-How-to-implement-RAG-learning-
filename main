@@ -1,0 +1,27 @@
+import requests
+import json
+
+
+def main():
+    url = "https://qianfan.baidubce.com/v2/app/conversation"
+
+    payload = json.dumps({
+         "app_id": "87b30e99-1852-4b7d-93c9-72dcdc39f4e7",
+         "query": "中国有多少小学生",
+         "stream": True,
+         "file_ids": ["cdd1e194-cfb7-4173-a154-795fae8535d9"],
+         "request_id": "3c3a11e6-cea8-42fc-aa13-d8e7a18bb312",
+         "conversation_id": "7efa17cb-074b-4936-acec-65e57eeab4e2"
+    })
+    headers = {
+        'Content-Type': 'application/json',
+        'X-Appbuilder-Authorization': 'Bearer bce-v3/ALTAK-9hBqGbqL4C1edNETWOuKM/16e54a5ddc73406f4255951edb89adb074ff1ebe'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+
+    print(response.text)
+
+
+if __name__ == '__main__':
+    main()

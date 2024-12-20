@@ -1,0 +1,25 @@
+import requests
+import json
+
+
+def main():
+
+    api_key= 'TAi1IHAb5FszkFcqdzKXGkt1'
+    secret_key = 'mXuBpjPgrBXAXvRBzrKHnwc9Ou2ojGkZ'
+    # token_url = 'https://api-ssl.bitly.com/v4/tokens'
+
+    url = f"https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id={api_key}&client_secret={secret_key}"
+
+    payload = ""
+    headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+
+    print(response.text)
+
+
+if __name__ == '__main__':
+    main()
